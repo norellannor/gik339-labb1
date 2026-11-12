@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Placerar <script></script> enligt best practice, 
+     detta eftersom HTML-filen läses uppifrån och ner och det
+     behövs ofta arbeta med HTML-dokumentet från javascript-filen.
+     Bra då om webbläsaren har läst in HTML-kod så javasriptet
+     har tillgång till den.
+     Om script placeras i head så gör attributet defer att 
+     webbläsaren väntar med körningen av skriptet tills
+     dokumentet har laddats in.-->
+    <script src="script.js"></script>
+  </body>
+</html>
