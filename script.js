@@ -58,7 +58,7 @@ const add = (num1, num2) => {
   //kontrollerar parametrar mot andra värden.
   console.log(num1 == 0);
   console.log(num2 === "0");
-  console.log(num1 === 0);
+  console.log(num2 === 0);
   console.log(num1 == NaN);
 
   console.log(num1 ? "truthy" : "falsy");
@@ -93,35 +93,48 @@ const add = (num1, num2) => {
 /* Uppgift 5 
 Parametrar är namn på inskickade värden i funktionen. Det sätts när funktionen skapas.
 Argument är de värden som skickas in inom parenteserna när funktionen anropas.
-Variabel är containers/"behållare" för data.*/
+Variabel är containers/"behållare" för data, kan vara nummer, strängar, m.m.*/
 const num1 = 0;
 let arg1;
 let sum = false;
 
-/* output blev först 1 eftersom false blev 0, ändrade kod till typeof num1==="number", 
-output blev då "Felaktigt input..."*/
+/* 
+Parametrarna får de värden som skickas in som argument vid anropet. Dvs. false och 1 vid test1. 
+Vid jämförelser:
+output true eftersom den jämför num1 == 0, där false typkonvertats till värdet 0
+output false, eftersom det är en strikt jämförelse, 1 är en siffra och jämförs mot en sträng.
+output false, eftersom 1 inte är lika med 0. 
+output false vid num1 == NaN, eftersom jämförelse med NaN alltid ger false, till och med NaN == NaN. 
+output falsy då num1 är false. 
+Villkorsoperatorn:
+output (returvärdet) blev först 1 eftersom false typkonverterades till värde 0 och gick därför igenom
+villkoren och gav true,(även för att num1 !== NaN alltid ger true) ändrade kod till 
+typeof num1==="number" istället. Output blev då "Felaktigt input..."*/
 console.log("--Test 1--");
 console.log(add(sum, 1));
 
-/*Eftersom "0" är en sträng och inte en siffra så blir output "Felaktig input..
+/*
+Returvärdet "Felaktig input.." Eftersom "0" är en sträng och inte en siffra
 Fick innan typeof.. output 03*/
 console.log("--Test 2--");
 console.log(add("0", 3));
 
-/* Samma som ovan, innan typeof blev output: 3num1 */
+/*Returvärde "Felaktig input..". num2 är en sträng och inte en siffra.   
+Innan typeof blev output: 3num1 */
 console.log("--Test 3--");
 console.log(add(3, "num1"));
 
-/* funktionen räknar ut -5 + 0 = -5 och output blir -5 */
+/* Returvärde -5, två siffror som argument och samtliga villkor blir true. 
+funktionen räknar ut -5 + 0 = -5*/
 console.log("--Test 4--");
 console.log(add(-5, num1));
 
-/* Output blir "Felaktigt output... då arg1 är undefined*/
+/* Returvärde "Felaktigt output... då arg1 är undefined*/
 console.log("--Test 5--");
 console.log(add(arg1, 7));
 
 /*Anrop utan argument dvs. num1 och num2 är undefined.
-Output blir därför "Felaktigt input.." */
+Returvärdet blir därför "Felaktigt input.." */
 console.log("--Test 6--");
 console.log(add());
 
