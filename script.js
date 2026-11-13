@@ -63,6 +63,7 @@ const add = (num1, num2) => {
 
   console.log(num1 ? "truthy" : "falsy");
 
+  //Testar vad varje villkor i if-satsen skulle ge enskilt.
   // console.log(num1 !== null);
   // console.log(num2 !== null);
   // console.log(num1 !== undefined);
@@ -80,8 +81,10 @@ const add = (num1, num2) => {
     num1 !== undefined &&
     num2 !== undefined &&
     typeof num1 === "number" &&
-    typeof num2 === "number"
-    // num1 !== NaN &&
+    typeof num2 === "number" &&
+    !Number.isNaN(num1) &&
+    !Number.isNaN(num2)
+    // num1 !== NaN &&  //detta gav fel returvärde
     // num2 !== NaN
   ) {
     return num1 + num2;
@@ -108,8 +111,8 @@ output false vid num1 == NaN, eftersom jämförelse med NaN alltid ger false, ti
 output falsy då num1 är false. 
 Villkorsoperatorn:
 output (returvärdet) blev först 1 eftersom false typkonverterades till värde 0 och gick därför igenom
-villkoren och gav true,(även för att num1 !== NaN alltid ger true) ändrade kod till 
-typeof num1==="number" istället. Output blev då "Felaktigt input..."*/
+villkoren och gav true,(för att num1 !== NaN alltid ger true) ändrade kod till 
+typeof num1==="number" istället och !Number.isNaN(num1). Output blev då "Felaktigt input..."*/
 console.log("--Test 1--");
 console.log(add(sum, 1));
 
